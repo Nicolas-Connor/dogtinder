@@ -1,5 +1,5 @@
 import * as React from 'react';
-import {  Slider, Image ,Button,Alert, StyleSheet, Text, View } from 'react-native';
+import {  Slider, Image ,Button,Alert, StyleSheet, Text, View, SafeAreaView, ScrollView } from 'react-native';
 import { createAppContainer } from 'react-navigation';
 import Swiper from 'react-native-deck-swiper'
 import { createStackNavigator } from 'react-navigation-stack';
@@ -179,16 +179,25 @@ class ModalScreen extends React.Component {
     
     return (
 
-      <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
-        <Text style={{ fontSize: 30 }}>This is a modal!  {JSON.stringify(this.props.navigation.getParam('itemId', '-1'))}</Text>
-        <Text style={styles.text}> + {JSON.stringify(this.props.navigation.getParam('itemId', '-1'))}</Text>
+      <SafeAreaView style={styles.container}>
+      <ScrollView style={styles.scrollView}>
         <Image source={{uri: 'https://source.unsplash.com/400x400/?dog/'+JSON.stringify(this.props.navigation.getParam('itemId', '-1'))}}
        style={{width: 365, height: 400}} />
+       <Text style={styles.text}>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+          eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
+          minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+          aliquip ex ea commodo consequat. Duis aute irure dolor in
+          reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
+          pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
+          culpa qui officia deserunt mollit anim id est laborum.
+        </Text>
         <Button
           onPress={() => this.props.navigation.goBack()}
           title="Dismiss"
         />
-      </View>
+      </ScrollView>
+    </SafeAreaView>
     );
   }
 }
