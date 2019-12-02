@@ -1,6 +1,22 @@
-import React, { Component } from 'react'
+import * as React from 'react';
+import {  Slider, Image ,Button,Alert, StyleSheet, Text, View } from 'react-native';
+import { createAppContainer } from 'react-navigation';
 import Swiper from 'react-native-deck-swiper'
-import { Slider, Image ,Button,Alert, StyleSheet, Text, View } from 'react-native'
+import { createStackNavigator } from 'react-navigation-stack';
+
+class HomeScreen extends React.Component {
+  render() {
+    return (
+      <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
+        <Text>Login/signup page</Text>
+        <Button
+          title="Rate Dogs"
+          onPress={() => this.props.navigation.navigate('RateDogs')}
+        />
+      </View>
+    );
+  }
+}
 
 // demo purposes only
 function * range (start, end) {
@@ -9,7 +25,7 @@ function * range (start, end) {
   }
 }
 
-export default class App extends Component {
+class RateDogsScreen extends React.Component {
   constructor (props) {
     super(props)
     this.state = {
@@ -159,6 +175,24 @@ export default class App extends Component {
   }
 }
 
+const RootStack = createStackNavigator(
+  {
+    Home: {
+      screen: HomeScreen,
+      
+    },
+    RateDogs: {
+      screen: RateDogsScreen,
+      navigationOptions: {
+        header: null,
+    },
+    },
+  },
+  {
+    initialRouteName: 'Home',
+  }
+);
+
 const styles = StyleSheet.create({
   container: {
     flex: 1,
@@ -191,3 +225,12 @@ const styles = StyleSheet.create({
     backgroundColor: 'transparent'
   }
 })
+
+
+const AppContainer = createAppContainer(RootStack);
+
+export default class App extends React.Component {
+  render() {
+    return <AppContainer />;
+  }
+}
