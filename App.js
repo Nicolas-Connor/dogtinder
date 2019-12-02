@@ -75,7 +75,7 @@ class RateDogsScreen extends React.Component {
           onSwipedRight={() => this.onSwiped('right')}
           onSwipedTop={() => this.onSwiped('top')}
           onSwipedBottom={() => this.onSwiped('bottom')}
-          onTapCard={this.swipeLeft}
+          onTapCard={() => this.props.navigation.navigate('MyModal')}
           cards={this.state.cards}
           cardIndex={this.state.cardIndex}
           cardVerticalMargin	 = {100}
@@ -174,7 +174,19 @@ class RateDogsScreen extends React.Component {
     )
   }
 }
-
+class ModalScreen extends React.Component {
+  render() {
+    return (
+      <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
+        <Text style={{ fontSize: 30 }}>This is a modal!</Text>
+        <Button
+          onPress={() => this.props.navigation.goBack()}
+          title="Dismiss"
+        />
+      </View>
+    );
+  }
+}
 const RootStack = createStackNavigator(
   {
     Home: {
@@ -186,6 +198,9 @@ const RootStack = createStackNavigator(
       navigationOptions: {
         header: null,
     },
+    },
+    MyModal: {
+      screen: ModalScreen,
     },
   },
   {
