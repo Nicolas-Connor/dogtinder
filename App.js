@@ -75,7 +75,7 @@ class RateDogsScreen extends React.Component {
           onSwipedRight={() => this.onSwiped('right')}
           onSwipedTop={() => this.onSwiped('top')}
           onSwipedBottom={() => this.onSwiped('bottom')}
-          onTapCard={() => this.props.navigation.navigate('MyModal')}
+          onTapCard={(cardIndex) => this.props.navigation.navigate('MyModal', {itemId: cardIndex,})}
           cards={this.state.cards}
           cardIndex={this.state.cardIndex}
           cardVerticalMargin	 = {100}
@@ -176,9 +176,14 @@ class RateDogsScreen extends React.Component {
 }
 class ModalScreen extends React.Component {
   render() {
+    
     return (
+
       <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
-        <Text style={{ fontSize: 30 }}>This is a modal!</Text>
+        <Text style={{ fontSize: 30 }}>This is a modal!  {JSON.stringify(this.props.navigation.getParam('itemId', '-1'))}</Text>
+        <Text style={styles.text}> + {JSON.stringify(this.props.navigation.getParam('itemId', '-1'))}</Text>
+        <Image source={{uri: 'https://source.unsplash.com/400x400/?dog/'+JSON.stringify(this.props.navigation.getParam('itemId', '-1'))}}
+       style={{width: 365, height: 400}} />
         <Button
           onPress={() => this.props.navigation.goBack()}
           title="Dismiss"
