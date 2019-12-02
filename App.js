@@ -3,6 +3,10 @@ import {  Slider, Image ,Button,Alert, StyleSheet, Text, View, SafeAreaView, Scr
 import { createAppContainer } from 'react-navigation';
 import Swiper from 'react-native-deck-swiper'
 import { createStackNavigator } from 'react-navigation-stack';
+import Carousel from 'react-native-snap-carousel';
+
+
+
 
 class HomeScreen extends React.Component {
   render() {
