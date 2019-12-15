@@ -4,7 +4,7 @@
 First start your android emulator thru android studio
 
 
-then cd to directory of project (ex.// cd C:\Users\Nicol\Desktop\deckSwiper\Example\node_modules)
+then cd to directory of project (ex.// cd C:\Users\Nicol\Desktop\DogTinder)
 
 If it's your first time running this app run `npm install`
 

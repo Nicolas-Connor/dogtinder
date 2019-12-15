@@ -3,7 +3,8 @@ import {  Slider, Image ,Button,Alert, StyleSheet, Text, View, SafeAreaView, Scr
 import { createAppContainer } from 'react-navigation';
 import Swiper from 'react-native-deck-swiper'
 import { createStackNavigator } from 'react-navigation-stack';
-import Carousel from 'react-native-snap-carousel';
+//import ImageSlider from 'react-native-image-slider';
+//import Carousel from 'react-native-snap-carousel';
 
 
 
@@ -88,6 +89,7 @@ class RateDogsScreen extends React.Component {
           useViewOverflow	 = {false}
           stackSize={3}
           stackSeparation={15}
+          backgroundColor='#c5dee8'
           
           overlayLabels={{
             bottom: {
@@ -167,13 +169,7 @@ class RateDogsScreen extends React.Component {
          
         </Swiper>
         </View>
-        <View style={[styles.rateBoxes]}>
-          <Slider
-            style={{width: 200, height: 40}}
-            minimumValue={5}
-            maximumValue={10}
-          />
-        </View>
+  
       </View>
     )
   }
@@ -229,10 +225,11 @@ const RootStack = createStackNavigator(
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#4FD0E9'
+    backgroundColor: '#F5FCFF'
   },
   swiper:{
     flex:1,
+    backgroundColor: '#F5FCFF'
   },
   rateBoxes:{
     alignItems: 'center',
