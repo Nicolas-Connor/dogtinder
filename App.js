@@ -2,7 +2,7 @@ import * as React from 'react';
 import {  Slider, Image ,Button,Alert, StyleSheet, View, SafeAreaView, ScrollView } from 'react-native';
 import { createAppContainer } from 'react-navigation';
 import Swiper from 'react-native-deck-swiper'
-import {  ThemeProvider,Header, Text, Input, Avatar  } from 'react-native-elements';
+import {  ThemeProvider,Header, Text, Input, Avatar,PricingCard  } from 'react-native-elements';
 import LinearGradient from 'react-native-linear-gradient';
 import { createStackNavigator } from 'react-navigation-stack';
 //import ImageSlider from 'react-native-image-slider';
@@ -14,12 +14,16 @@ import { createStackNavigator } from 'react-navigation-stack';
 class HomeScreen extends React.Component {
   render() {
     return (
-      <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
-        <Text>Login/signup page</Text>
-        <Button
+      <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center', width:"100%" }}>
+
+        <PricingCard
+          color="#4f9deb"
           title="Rate Dogs"
-          onPress={() => this.props.navigation.navigate('RateDogs')}
+          info={['1 User', 'Basic Support', 'All Core Features']}
+          button={{ title: 'GET STARTED', icon: 'flight-takeoff' }}
+          onButtonPress={() => this.props.navigation.navigate('RateDogs')}
         />
+        
       </View>
     );
   }
