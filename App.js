@@ -1,7 +1,10 @@
 import * as React from 'react';
-import {  Slider, Image ,Button,Alert, StyleSheet, Text, View, SafeAreaView, ScrollView } from 'react-native';
+import {  Slider, Image ,Button,Alert, StyleSheet, View, SafeAreaView, ScrollView } from 'react-native';
 import { createAppContainer } from 'react-navigation';
 import Swiper from 'react-native-deck-swiper'
+import {  ThemeProvider,Header, Text, Input, Avatar  } from 'react-native-elements';
+import LinearGradient from 'react-native-linear-gradient';
+import { createStackNavigator } from 'react-navigation-stack';
 //import ImageSlider from 'react-native-image-slider';
 //import Carousel from 'react-native-snap-carousel';
 
@@ -67,8 +70,20 @@ class RateDogsScreen extends React.Component {
 
   render () {
     return (
-      
+      <ThemeProvider style={{flex:1}} >
+        <Header style={{flex: 1}}
+  leftComponent={{ icon: 'menu', color: '#fff' }}
+  centerComponent={{ text: 'MY TITLE', style: { color: '#fff' } }}
+  rightComponent={<Avatar
+    rounded
+    source={{
+      uri:
+        'https://images.unsplash.com/photo-1517423440428-a5a00ad493e8?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=687&q=80',
+    }}
+  />}
+/>
       <View style={styles.container}>
+        
         <View style={[styles.swiper]}>
         <Swiper
           ref={swiper => {
@@ -89,24 +104,10 @@ class RateDogsScreen extends React.Component {
           stackSize={3}
           stackSeparation={15}
           backgroundColor='#c5dee8'
-          
+          disableTopSwipe={true}
+          disableBottomSwipe={true}
+          cardStyle={{marginTop:-70}}
           overlayLabels={{
-            bottom: {
-              title: 'BLEAH',
-              style: {
-                label: {
-                  backgroundColor: 'black',
-                  borderColor: 'black',
-                  color: 'white',
-                  borderWidth: 1
-                },
-                wrapper: {
-                  flexDirection: 'column',
-                  alignItems: 'center',
-                  justifyContent: 'center'
-                }
-              }
-            },
             left: {
               title: 'NOPEE',
               style: {
@@ -143,22 +144,6 @@ class RateDogsScreen extends React.Component {
                 }
               }
             },
-            top: {
-              title: 'SUPER LIKE',
-              style: {
-                label: {
-                  backgroundColor: 'black',
-                  borderColor: 'black',
-                  color: 'white',
-                  borderWidth: 1
-                },
-                wrapper: {
-                  flexDirection: 'column',
-                  alignItems: 'center',
-                  justifyContent: 'center'
-                }
-              }
-            }
           }}
           animateOverlayLabelsOpacity
           animateCardOpacity
@@ -170,6 +155,7 @@ class RateDogsScreen extends React.Component {
         </View>
   
       </View>
+      </ThemeProvider>
     )
   }
 }
@@ -223,12 +209,16 @@ const RootStack = createStackNavigator(
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
+    flex: 2,
     backgroundColor: '#F5FCFF'
+    
   },
   swiper:{
-    flex:1,
-    backgroundColor: '#F5FCFF'
+    
+    flex:2,
+    backgroundColor: '#F5FCFF',
+    
+   
   },
   rateBoxes:{
     alignItems: 'center',
