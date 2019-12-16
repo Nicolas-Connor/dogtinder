@@ -20,7 +20,7 @@
     "react-native-snap-carousel": "^3.8.4",
     "react-native-view-overflow": "0.0.4",
     "react-navigation": "^4.0.10",
-    "react-navigation-stack": "^1.10.3"
+ 
   },
   "devDependencies": {
     "@babel/core": "^7.7.4",

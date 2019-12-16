@@ -2,7 +2,6 @@ import * as React from 'react';
 import {  Slider, Image ,Button,Alert, StyleSheet, Text, View, SafeAreaView, ScrollView } from 'react-native';
 import { createAppContainer } from 'react-navigation';
 import Swiper from 'react-native-deck-swiper'
-import { createStackNavigator } from 'react-navigation-stack';
 //import ImageSlider from 'react-native-image-slider';
 //import Carousel from 'react-native-snap-carousel';
 
