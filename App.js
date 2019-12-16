@@ -1,8 +1,8 @@
 import * as React from 'react';
-import {  Slider, Image ,Button,Alert, StyleSheet, View, SafeAreaView, ScrollView } from 'react-native';
+import {  Slider, Image ,Alert, StyleSheet, View, SafeAreaView, ScrollView } from 'react-native';
 import { createAppContainer } from 'react-navigation';
 import Swiper from 'react-native-deck-swiper'
-import {  ThemeProvider,Header, Text, Input, Avatar,PricingCard  } from 'react-native-elements';
+import {  ThemeProvider,Header, Text, Input, Avatar,PricingCard,Button  } from 'react-native-elements';
 import LinearGradient from 'react-native-linear-gradient';
 import { createStackNavigator } from 'react-navigation-stack';
 //import ImageSlider from 'react-native-image-slider';
@@ -23,6 +23,20 @@ class HomeScreen extends React.Component {
           button={{ title: 'GET STARTED', icon: 'flight-takeoff' }}
           onButtonPress={() => this.props.navigation.navigate('RateDogs')}
         />
+        <Button
+         
+         title="Next"
+         
+        containerStyle={{width:"90%",}}
+        buttonStyle={{borderRadius:50,height:50,width:50}}
+        ViewComponent={LinearGradient} // Don't forget this!
+        linearGradientProps={{
+          colors: ['#8E2DE2', '#7B4FC2'],
+          start: { x: 0, y: 0.0 },
+          end: { x: 1, y: 1 },
+        }}
+         
+       />
         
       </View>
     );
@@ -110,50 +124,99 @@ class RateDogsScreen extends React.Component {
           backgroundColor='#c5dee8'
           disableTopSwipe={true}
           disableBottomSwipe={true}
-          cardStyle={{marginTop:-70}}
-          overlayLabels={{
-            left: {
-              title: 'NOPEE',
-              style: {
-                label: {
-                  backgroundColor: 'black',
-                  borderColor: 'black',
-                  color: 'white',
-                  borderWidth: 1
-                },
-                wrapper: {
-                  flexDirection: 'column',
-                  alignItems: 'flex-end',
-                  justifyContent: 'flex-start',
-                  marginTop: 30,
-                  marginLeft: -30
-                }
-              }
-            },
-            right: {
-              title: 'LIKE',
-              style: {
-                label: {
-                  backgroundColor: 'black',
-                  borderColor: 'black',
-                  color: 'white',
-                  borderWidth: 1
-                },
-                wrapper: {
-                  flexDirection: 'column',
-                  alignItems: 'flex-start',
-                  justifyContent: 'flex-start',
-                  marginTop: 30,
-                  marginLeft: 30
-                }
-              }
-            },
-          }}
+          cardStyle={{marginTop:-85}}
           animateOverlayLabelsOpacity
           animateCardOpacity
           swipeBackCard
         >
-          
+          <View style={{flex:3, flexDirection:"row",justifyContent: 'space-between', position:"absolute",bottom:0}}> 
+          <Button
+         onButtonPress={() => this.swiper.swipeLeft()}
+
+         title="5"
+         
+        containerStyle={{margin:10}}
+        buttonStyle={{borderRadius:50,height:50,width:50}}
+        ViewComponent={LinearGradient} // Don't forget this!
+        linearGradientProps={{
+          colors: ['#8E2DE2', '#7B4FC2'],
+          start: { x: 0, y: 0.0 },
+          end: { x: 1, y: 1 },
+        }}
+        
+         
+       />
+       <Button
+         
+         title="6"
+         
+        containerStyle={{margin:10}}
+        buttonStyle={{borderRadius:50,height:50,width:50}}
+        ViewComponent={LinearGradient} // Don't forget this!
+        linearGradientProps={{
+          colors: ['#8E2DE2', '#7B4FC2'],
+          start: { x: 0, y: 0.0 },
+          end: { x: 1, y: 1 },
+        }}
+         
+       />
+       <Button
+         
+         title="7"
+         
+        containerStyle={{margin:10}}
+        buttonStyle={{borderRadius:50,height:50,width:50}}
+        ViewComponent={LinearGradient} // Don't forget this!
+        linearGradientProps={{
+          colors: ['#8E2DE2', '#7B4FC2'],
+          start: { x: 0, y: 0.0 },
+          end: { x: 1, y: 1 },
+        }}
+         
+       />
+       <Button
+         
+         title="8"
+         
+        containerStyle={{margin:10}}
+        buttonStyle={{borderRadius:50,height:50,width:50}}
+        ViewComponent={LinearGradient} // Don't forget this!
+        linearGradientProps={{
+          colors: ['#8E2DE2', '#7B4FC2'],
+          start: { x: 0, y: 0.0 },
+          end: { x: 1, y: 1 },
+        }}
+         
+       />
+       <Button
+         
+         title="9"
+         
+        containerStyle={{margin:10}}
+        buttonStyle={{borderRadius:50,height:50,width:50}}
+        ViewComponent={LinearGradient} // Don't forget this!
+        linearGradientProps={{
+          colors: ['#8E2DE2', '#7B4FC2'],
+          start: { x: 0, y: 0.0 },
+          end: { x: 1, y: 1 },
+        }}
+         
+       />
+       <Button
+         
+         title="10"
+         
+        containerStyle={{margin:10}}
+        buttonStyle={{borderRadius:50,height:50,width:50}}
+        ViewComponent={LinearGradient} // Don't forget this!
+        linearGradientProps={{
+          colors: ['#8E2DE2', '#7B4FC2'],
+          start: { x: 0, y: 0.0 },
+          end: { x: 1, y: 1 },
+        }}
+         
+       />
+          </View>
          
         </Swiper>
         </View>
@@ -220,6 +283,7 @@ const styles = StyleSheet.create({
   swiper:{
     
     flex:2,
+    justifyContent: "space-between",
     backgroundColor: '#F5FCFF',
     
    
