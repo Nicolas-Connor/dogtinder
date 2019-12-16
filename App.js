@@ -7,6 +7,7 @@ import LinearGradient from 'react-native-linear-gradient';
 import { createStackNavigator } from 'react-navigation-stack';
 //import ImageSlider from 'react-native-image-slider';
 //import Carousel from 'react-native-snap-carousel';
+import Slideshow from 'react-native-image-slider-show';
 
 
 
@@ -233,9 +234,16 @@ class ModalScreen extends React.Component {
 
       <SafeAreaView style={styles.container}>
       <ScrollView style={styles.scrollView}>
-        <Image source={{uri: 'https://source.unsplash.com/400x400/?dog/'+JSON.stringify(this.props.navigation.getParam('itemId', '-1'))}}
-       style={{width: 365, height: 400}} />
-       <Text style={styles.text}>
+      <Slideshow 
+      dataSource={[
+        { url:'https://source.unsplash.com/400x400/?dog/'+JSON.stringify(this.props.navigation.getParam('itemId', '-1')) },
+        { url:'http://placeimg.com/640/480/any' },
+        { url:'http://placeimg.com/640/480/any' }
+    ]}/>
+       <Text h1 style={styles.text}>
+         About
+       </Text>
+       <Text style={{fontSize:17}}>
           Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
           eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
           minim veniam, quis nostrud exercitation ullamco laboris nisi ut
@@ -244,10 +252,7 @@ class ModalScreen extends React.Component {
           pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
           culpa qui officia deserunt mollit anim id est laborum.
         </Text>
-        <Button
-          onPress={() => this.props.navigation.goBack()}
-          title="Dismiss"
-        />
+       
       </ScrollView>
     </SafeAreaView>
     );
@@ -302,8 +307,7 @@ const styles = StyleSheet.create({
   },
   text: {
     textAlign: 'center',
-    fontSize: 50,
-    backgroundColor: 'transparent'
+   
   },
   done: {
     textAlign: 'center',
